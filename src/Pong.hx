@@ -92,7 +92,7 @@ class Pong extends Game{
         var ballLogationStart = new Vector2d( width/2-25, height/2-25);
         ball = new Entity(rackets,ballLogationStart,scene,{width:25,height:25});
         
-        ball.applyForce(new Vector2d(-40 + level*5,-40+ level*5));
+        ball.applyForce(new Vector2d(-40 + level*2,-40+ level*2));
        
         ball.EffectTouchLeft = function(){
             if(ball.location.x < racketsWidth){
