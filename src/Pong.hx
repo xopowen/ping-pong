@@ -20,7 +20,7 @@ class Pong extends Game{
     var width:Float;
     var height:Float;
     var moveSade:Float;
-
+    
     var racketsHeight:Float;
     var racketsWidth:Float;
     var rackets:hxd.res.Image;
@@ -89,11 +89,10 @@ class Pong extends Game{
  
 
     function startLaval(){
-        var ballLogationStart = new Vector2d( width/2-25, height/2-25);
-        ball = new Entity(rackets,ballLogationStart,scene,{width:25,height:25});
+   
+        ball = new Entity(rackets, new Vector2d( width/2-25, height/2-25),scene,{width:25,height:25});
         
-        ball.applyForce(new Vector2d(-40 + level*2,-40+ level*2));
-       
+        ball.applyForce(new Vector2d(-30,-30) );
         ball.EffectTouchLeft = function(){
             if(ball.location.x < racketsWidth){
                 score  -= 1;
@@ -101,7 +100,7 @@ class Pong extends Game{
                 startLaval();
                 chackWinOrlost();
             }else if(Std.int(playerRackets.velocity.y) !=0){
-                ball.applyForce(ball.velocity.mul(1.5* level));
+                ball.applyForce(ball.velocity.mul(2 * level));
             }
         }
         ball.EffectTouchRight =  function(){
@@ -112,7 +111,7 @@ class Pong extends Game{
                 startLaval();
                 chackWinOrlost();
             }else if(Std.int(playerRackets.velocity.y) !=0){
-                ball.applyForce(ball.velocity.mul(1.5* level));
+                ball.applyForce(ball.velocity.mul(2 * level));
             }
         }
 
